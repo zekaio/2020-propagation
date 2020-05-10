@@ -11,6 +11,7 @@
         {{ t.text }}
       </div>
     </div>
+    <div class="footer">footer</div>
   </div>
 </template>
 
@@ -42,7 +43,7 @@ export default {
 <style scoped>
 .index {
   background-image: url(../assets/index_bg.png);
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
   min-height: 100vh;
   min-width: 100vw;
   background-attachment: fixed;
@@ -62,5 +63,9 @@ export default {
   background-size: 100% 100%;
   margin: auto;
   margin-top: 3vh;
+}
+.footer{
+  visibility: hidden;
+  padding-bottom: 4vh;
 }
 </style>
