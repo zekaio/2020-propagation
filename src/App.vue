@@ -10,12 +10,42 @@ import timeBg from "./assets/time_bg.png";
 import foodBg from "./assets/food_bg.png";
 import starBg from "./assets/star_bg.png";
 import marketBg from "./assets/market_bg.png";
+import timeTitle from "./assets/time_title.png";
+import starTitle from "./assets/star_title.png";
+import marketTitle from "./assets/market_title.png";
+import foodTitle from "./assets/food_title.png";
+import timeBackBg from "./assets/time_back_bg.png";
+import time_enter_bg from "./assets/time_enter.png";
+import starBackBg from "./assets/star_back_bg.png";
+import star_enter_bg from "./assets/star_enter.png";
+import marketBackBg from "./assets/market_back_bg.png";
+import foodBackBg from "./assets/food_back_bg.png";
+import food_enter_bg from "./assets/food_enter.png";
+
 import { Loading } from "element-ui";
+import Vue from "vue";
 export default {
   name: "app",
   data: function() {
     return {
-      imgs: [indexBg, timeBg, foodBg, starBg, marketBg],
+      imgs: [
+        indexBg,
+        timeBg,
+        foodBg,
+        starBg,
+        marketBg,
+        timeTitle,
+        starTitle,
+        marketTitle,
+        foodTitle,
+        timeBackBg,
+        time_enter_bg,
+        starBackBg,
+        star_enter_bg,
+        foodBackBg,
+        marketBackBg,
+        food_enter_bg,
+      ],
       count: 0,
     };
   },
@@ -25,7 +55,7 @@ export default {
         let img = new Image();
         img.onload = () => {
           this.count++;
-          if (this.count == this.imgs.length) {
+          if (this.count == this.imgs.length + 1) {
             loading.close();
           }
         };
@@ -39,13 +69,23 @@ export default {
     });
     let loadingInstance = Loading.service({ body: true, text: "加载中" });
     this.preload(loadingInstance);
+    this.$axios({
+      method: "get",
+      url: "./data.json",
+    }).then((res) => {
+      Vue.prototype.$global_data = res.data;
+      this.count++;
+      if (this.count == this.imgs.length + 1) {
+        loadingInstance.close();
+      }
+    });
     setTimeout(() => {
       try {
         loadingInstance.close();
       } catch (e) {
         console.log(e);
       }
-    }, 3000);
+    }, 5000);
   },
 };
 </script>

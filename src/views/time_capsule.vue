@@ -20,7 +20,6 @@ import enter from "../components/enter";
 import timeBackBg from "../assets/time_back_bg.png";
 import timeTitle from "../assets/time_title.png";
 import enter_bg from "../assets/time_enter.png";
-import { time_capsule_url, time_capsule_start } from "../config/config";
 
 export default {
   name: "time_capsule",
@@ -35,16 +34,21 @@ export default {
       timeBackBg,
       timeTitle,
       enter_bg,
-      time_capsule_url,
-      time_capsule_start,
-      text1: [
-        "当过去凋零成遗迹",
-        "用文字刻划出暖意",
-        "我们携手在华园地图上标记",
-        "保存那些珍贵的回忆",
-      ],
-      text2: ["5月16日至6月14日", "毕业季时光胶囊", "为你定格那一刻的美好"],
     };
+  },
+  computed: {
+    time_capsule_url: function() {
+      return this.$global_data ? this.$global_data.time_capsule_url : "";
+    },
+    time_capsule_start: function() {
+      return this.$global_data ? this.$global_data.time_capsule_start : "";
+    },
+    text1: function() {
+      return this.$global_data ? this.$global_data.time_text1 : "";
+    },
+    text2: function() {
+      return this.$global_data ? this.$global_data.time_text2 : "";
+    },
   },
 };
 </script>

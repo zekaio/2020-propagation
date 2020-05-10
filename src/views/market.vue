@@ -25,15 +25,15 @@ export default {
     return {
       marketBackBg,
       marketTitle,
-      text1: [
-        "时光荏苒，四年悄然而逝",
-        "岁月冷暖，四年的时光色彩斑斓",
-        "我们用设计记录华工的点滴，用产品鼓励你们奋勇向前",
-        "前路漫漫，未来可期",
-        "细数过往，纸短情长",
-      ],
-      text2: ["6月6日至6月10日", "记得来带走你的华工记忆"],
     };
+  },
+  computed: {
+    text1: function() {
+      return this.$global_data ? this.$global_data.market_text1 : "";
+    },
+    text2: function() {
+      return this.$global_data ? this.$global_data.market_text2 : "";
+    },
   },
 };
 </script>

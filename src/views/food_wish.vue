@@ -20,7 +20,6 @@ import enter from "../components/enter";
 import foodBackBg from "../assets/food_back_bg.png";
 import foodTitle from "../assets/food_title.png";
 import enter_bg from "../assets/food_enter.png";
-import { food_wish_url, food_wish_start } from "../config/config";
 
 export default {
   name: "food_wish",
@@ -35,20 +34,21 @@ export default {
       foodBackBg,
       foodTitle,
       enter_bg,
-      food_wish_url,
-      food_wish_start,
-      text1: [
-        "将夏时分，蝉鸣阵阵",
-        "阳光透过云隙洒满校道",
-        "味蕾怀念的是华园滋味",
-        "仰望青空，谁的心愿将被寄予远方",
-      ],
-      text2: [
-        "5月23日至5月29日",
-        "许愿系列线上活动食愿记",
-        "暖萌食物替你传达愿望",
-      ],
     };
+  },
+  computed: {
+    food_wish_url: function() {
+      return this.$global_data ? this.$global_data.food_wish_url : "";
+    },
+    food_wish_start: function() {
+      return this.$global_data ? this.$global_data.food_wish_start : "";
+    },
+    text1: function() {
+      return this.$global_data ? this.$global_data.food_text1 : "";
+    },
+    text2: function() {
+      return this.$global_data ? this.$global_data.food_text2 : "";
+    },
   },
 };
 </script>

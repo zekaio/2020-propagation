@@ -20,7 +20,6 @@ import enter from "../components/enter";
 import starBackBg from "../assets/star_back_bg.png";
 import starTitle from "../assets/star_title.png";
 import enter_bg from "../assets/star_enter.png";
-import { star_url, star_start } from "../config/config";
 
 export default {
   name: "time_capsule",
@@ -35,20 +34,21 @@ export default {
       starBackBg,
       starTitle,
       enter_bg,
-      star_url,
-      star_start,
-      text1: [
-        "灰色疫情吞噬了城市的色彩",
-        "冰冷口罩掩盖了纯真的笑容",
-        "这一次，让我们踏上星际追寻失去的色彩",
-        "镜子对面，是自己专属的红",
-        "日月并行，是时间独特的蓝",
-        "回忆湖畔，是记忆荧光的黄",
-        "这趟旅程中，星星点点，描绘彩色的未来",
-        "请握紧手中的船票，让我们带你追寻心里的星空",
-      ],
-      text2: ["5月29日至6月5日", "星语星寻 光点与你"],
     };
+  },
+  computed: {
+    star_url: function() {
+      return this.$global_data ? this.$global_data.star_url : "";
+    },
+    star_start: function() {
+      return this.$global_data ? this.$global_data.star_start : "";
+    },
+    text1: function() {
+      return this.$global_data ? this.$global_data.star_text1 : "";
+    },
+    text2: function() {
+      return this.$global_data ? this.$global_data.star_text2 : "";
+    },
   },
 };
 </script>

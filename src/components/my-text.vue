@@ -12,10 +12,7 @@
 
 <script>
 export default {
-  props: {
-    text1: Array,
-    text2: Array,
-  },
+  props: ["text1", "text2"],
 };
 </script>
 
