@@ -22,7 +22,7 @@ import marketBackBg from "./assets/market_back_bg.png";
 import foodBackBg from "./assets/food_back_bg.png";
 import food_enter_bg from "./assets/food_enter.png";
 
-import { Loading } from "element-ui";
+import { Loading,Message } from "element-ui";
 import Vue from "vue";
 export default {
   name: "app",
@@ -78,6 +78,13 @@ export default {
       if (this.count == this.imgs.length + 1) {
         loadingInstance.close();
       }
+    }).catch(()=>{
+        Message({
+          message: "请求失败，请刷新重试",
+          type: "error",
+          center: true,
+          showClose: true,
+        })
     });
     setTimeout(() => {
       try {
@@ -95,11 +102,10 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 .placeholder {
   visibility: hidden;
-  height: 0;
 }
 </style>

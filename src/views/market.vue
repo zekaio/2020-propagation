@@ -41,7 +41,7 @@ export default {
 <style scoped>
 .market {
   background-image: url(../assets/market_bg.png);
-  background-size: 100% 100%;
+  background-size: 100vw 100vh;
   min-width: 100vw;
   min-height: 100vh;
   background-attachment: fixed;

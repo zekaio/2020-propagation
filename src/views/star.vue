@@ -9,6 +9,7 @@
       :start_time="star_start"
       :enter_bg="enter_bg"
     ></enter>
+    <div class="placeholder">placeholder</div>
   </div>
 </template>
 
